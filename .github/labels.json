@@ -1,0 +1,92 @@
+[
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "Something isn't working"
+  },
+  {
+    "name": "enhancement",
+    "color": "a2eeef",
+    "description": "New feature or request"
+  },
+  {
+    "name": "documentation",
+    "color": "0075ca",
+    "description": "Improvements or additions to documentation"
+  },
+  {
+    "name": "good first issue",
+    "color": "7057ff",
+    "description": "Good for newcomers"
+  },
+  {
+    "name": "help wanted",
+    "color": "008672",
+    "description": "Extra attention is needed"
+  },
+  {
+    "name": "question",
+    "color": "d876e3",
+    "description": "Further information is requested"
+  },
+  {
+    "name": "security",
+    "color": "b60205",
+    "description": "Security related issue"
+  },
+  {
+    "name": "milestone-a",
+    "color": "0e8a16",
+    "description": "MVP / Milestone A"
+  },
+  {
+    "name": "milestone-b",
+    "color": "fbca04",
+    "description": "Safety & UX Expansion"
+  },
+  {
+    "name": "milestone-c",
+    "color": "f9d0c4",
+    "description": "Developer Ecosystem & Scale"
+  },
+  {
+    "name": "milestone-d",
+    "color": "c5def5",
+    "description": "Growth & Trust Signals"
+  },
+  {
+    "name": "api",
+    "color": "1d76db",
+    "description": "API related"
+  },
+  {
+    "name": "sdk",
+    "color": "1d76db",
+    "description": "SDK related"
+  },
+  {
+    "name": "frontend",
+    "color": "fef2c0",
+    "description": "Frontend/UI related"
+  },
+  {
+    "name": "backend",
+    "color": "5319e7",
+    "description": "Backend/API related"
+  },
+  {
+    "name": "blockchain",
+    "color": "0052ff",
+    "description": "Blockchain/Base integration"
+  },
+  {
+    "name": "ai",
+    "color": "412991",
+    "description": "AI/LLM related"
+  },
+  {
+    "name": "testing",
+    "color": "bfe5bf",
+    "description": "Testing related"
+  }
+]

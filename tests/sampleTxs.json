@@ -1,0 +1,161 @@
+{
+  "transactions": [
+    {
+      "id": "safe_1",
+      "description": "Simple ETH transfer",
+      "category": "safe",
+      "tx": {
+        "to": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+        "value": "1000000000000000000",
+        "data": "0x"
+      },
+      "expectedRiskScore": {
+        "min": 0,
+        "max": 10
+      },
+      "expectedLabel": "Safe"
+    },
+    {
+      "id": "safe_2",
+      "description": "ERC20 transfer from verified contract (USDC)",
+      "category": "safe",
+      "tx": {
+        "to": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "data": "0xa9059cbb000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb00000000000000000000000000000000000000000000000000000000005f5e100",
+        "value": "0"
+      },
+      "expectedRiskScore": {
+        "min": 0,
+        "max": 20
+      },
+      "expectedLabel": "Safe"
+    },
+    {
+      "id": "risky_1",
+      "description": "Unlimited ERC20 approval",
+      "category": "risky",
+      "tx": {
+        "to": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "data": "0x095ea7b3000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0bebffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "value": "0"
+      },
+      "expectedRiskScore": {
+        "min": 85,
+        "max": 100
+      },
+      "expectedLabel": "Critical Risk",
+      "riskFactors": ["unlimitedApproval"]
+    },
+    {
+      "id": "risky_2",
+      "description": "Large value approval (but not unlimited)",
+      "category": "risky",
+      "tx": {
+        "to": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "data": "0x095ea7b3000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "value": "0"
+      },
+      "expectedRiskScore": {
+        "min": 30,
+        "max": 60
+      },
+      "expectedLabel": "Caution",
+      "riskFactors": ["highValueApproval"]
+    },
+    {
+      "id": "risky_3",
+      "description": "NFT setApprovalForAll (grants access to all NFTs)",
+      "category": "risky",
+      "tx": {
+        "to": "0x4e9fce03284c0ce0b86c88dd5a46f050cad2f4f33c4cdd29d98f501868558c81",
+        "data": "0xa22cb465000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb0000000000000000000000000000000000000000000000000000000000000001",
+        "value": "0"
+      },
+      "expectedRiskScore": {
+        "min": 60,
+        "max": 85
+      },
+      "expectedLabel": "Risky",
+      "riskFactors": ["nftApprovalForAll"]
+    },
+    {
+      "id": "risky_4",
+      "description": "High value ETH transfer (5 ETH)",
+      "category": "risky",
+      "tx": {
+        "to": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+        "value": "5000000000000000000",
+        "data": "0x"
+      },
+      "expectedRiskScore": {
+        "min": 30,
+        "max": 60
+      },
+      "expectedLabel": "Caution",
+      "riskFactors": ["highValueTransfer"]
+    },
+    {
+      "id": "malicious_1",
+      "description": "Approval to known drainer pattern (example)",
+      "category": "malicious",
+      "tx": {
+        "to": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "data": "0x095ea7b3000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeefffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "value": "0"
+      },
+      "expectedRiskScore": {
+        "min": 85,
+        "max": 100
+      },
+      "expectedLabel": "Critical Risk",
+      "riskFactors": ["unlimitedApproval", "suspiciousSpender"]
+    },
+    {
+      "id": "malicious_2",
+      "description": "New/unverified contract interaction with large approval",
+      "category": "malicious",
+      "tx": {
+        "to": "0x1234567890123456789012345678901234567890",
+        "data": "0x095ea7b3000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0bebffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "value": "0"
+      },
+      "expectedRiskScore": {
+        "min": 85,
+        "max": 100
+      },
+      "expectedLabel": "Critical Risk",
+      "riskFactors": ["unlimitedApproval", "unverifiedContract"]
+    },
+    {
+      "id": "safe_3",
+      "description": "Limited ERC20 approval (100 tokens)",
+      "category": "safe",
+      "tx": {
+        "to": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "data": "0x095ea7b3000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb0000000000000000000000000000000000000000000000000000000005f5e100",
+        "value": "0"
+      },
+      "expectedRiskScore": {
+        "min": 0,
+        "max": 20
+      },
+      "expectedLabel": "Safe"
+    },
+    {
+      "id": "medium_1",
+      "description": "Contract interaction with moderate value",
+      "category": "medium",
+      "tx": {
+        "to": "0x4e9fce03284c0ce0b86c88dd5a46f050cad2f4f33c4cdd29d98f501868558c81",
+        "data": "0xa9059cbb000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "value": "1000000000000000000"
+      },
+      "expectedRiskScore": {
+        "min": 20,
+        "max": 40
+      },
+      "expectedLabel": "Caution"
+    }
+  ],
+  "notes": "These are example transactions for testing. Actual addresses and calldata should be validated against Base mainnet."
+}
