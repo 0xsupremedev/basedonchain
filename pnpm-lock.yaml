@@ -23,9 +23,6 @@ importers:
 
   apps/web:
     dependencies:
-      '@basedonchain/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
       '@hookform/resolvers':
         specifier: ^3.10.0
         version: 3.10.0(react-hook-form@7.68.0)
