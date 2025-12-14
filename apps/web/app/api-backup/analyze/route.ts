@@ -8,8 +8,6 @@ import { generateRiskExplanation } from "@/lib/ai";
 import { getBaseProvider } from "@/lib/ethers";
 import type { AnalysisResult, RiskScore, TransactionInput, ApiResponse } from "@/shared";
 
-const prisma = new PrismaClient();
-
 // Rate limiting store (in production, use Redis or Upstash)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
